@@ -1,11 +1,11 @@
-import { Todo } from './components/Todo';
+import { Todos } from './components/Todos';
 
 function App() {
   return (
     <main className="grid place-items-center place-content-center h-screen">
-      <Todo />
+      <Todos />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
