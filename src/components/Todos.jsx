@@ -80,15 +80,7 @@ function Todos() {
       // This isn't very efficient but it's fine for now
       todo.completed = event.target.checked;
       // Remove from open todos
-      const newOpen = open.filter((other) => {
-        console.debug({
-          otherId: other.id,
-          todoId: todo.id,
-          result: other.id === todo.id,
-        });
-
-        return other.id !== todo.id;
-      });
+      const newOpen = open.filter((other) => other.id !== todo.id);
       console.debug('open before/after', {
         before: open.length,
         after: newOpen.length,
@@ -111,10 +103,6 @@ function Todos() {
       todo.completed = event.target.checked;
       // Remove from completed todos
       const newCompleted = completed.filter((other) => other.id !== todo.id);
-      console.debug('completed before/after', {
-        before: completed.length,
-        after: newCompleted.length,
-      });
       const newOpen = [...open, todo];
       setCompeleted(newCompleted);
       setOpen(newOpen);
